@@ -3,7 +3,7 @@
 # %% auto 0
 __all__ = ['show_image', 'get_grid', 'show_images']
 
-# %% ../nbs/001_dataset_CIFAR_10.ipynb 7
+# %% ../nbs/001_dataset_CIFAR_10.ipynb 6
 def show_image(im,
                ax=None,
                figsize=None,
@@ -24,7 +24,7 @@ def show_image(im,
     if noframe: ax.axis('off')
     return ax
 
-# %% ../nbs/001_dataset_CIFAR_10.ipynb 8
+# %% ../nbs/001_dataset_CIFAR_10.ipynb 7
 def get_grid(
     n:int, # Number of axes
     nrows:int=None, # Number of rows, defaulting to `int(math.sqrt(n))`
@@ -50,14 +50,15 @@ def get_grid(
         
     return fig,axs
 
-# %% ../nbs/001_dataset_CIFAR_10.ipynb 9
+# %% ../nbs/001_dataset_CIFAR_10.ipynb 8
 def show_images(ims:list, # Images to show
                 nrows:int|None=None, # Number of rows in grid
                 ncols:int|None=None, # Number of columns in grid (auto-calculated if None)
-                titles:list|None=None, # Optional list of titles for each image
+                title:str|None=None,
+                subtitles:list|None=None, # Optional list of titles for each image
                 **kwargs):
     "Show all images `ims` as subplots with `rows` using `titles`"
-    axs = get_grid(len(ims), nrows, ncols, **kwargs)[1].flat
+    axs = get_grid(len(ims), nrows, ncols, title, **kwargs)[1].flat
     
-    for im,t,ax in zip_longest(ims, titles or [], axs): 
+    for im,t,ax in zip_longest(ims, subtitles or [], axs): 
         show_image(im, ax=ax, title=t)
