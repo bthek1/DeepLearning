@@ -5,7 +5,7 @@
 ## Dimensions
 
 - use of any dataset - cifar, imagenet, kitti, nyu-dataset
-- use of any model - resnet18
+- use of any model - resnet18, ViT, UNet
 - different applications - object classification, object detection,
   object segmentation
 - measure change in performance

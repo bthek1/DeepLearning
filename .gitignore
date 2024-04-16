@@ -162,6 +162,9 @@ cython_debug/
 nbs/Data/
 _proc/Data/
 
+nbs/data/
+_proc/data/
+
 *.pkl
 
 *.csv
